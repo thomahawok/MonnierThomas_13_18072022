@@ -1,8 +1,8 @@
-function SaveEmployee(e, employee) {
-  const employees = JSON.parse(localStorage.getItem('employees')) || []
-  employees.push(employee)
-  localStorage.setItem('employees', JSON.stringify(employees))
+function SaveEmployee(e, employeeFromData) {
   e.preventDefault()
+  const employees = JSON.parse(localStorage.getItem('employees')) || []
+  employees.push(employeeFromData)
+  localStorage.setItem('employees', JSON.stringify(employees))
 }
 
 export default SaveEmployee

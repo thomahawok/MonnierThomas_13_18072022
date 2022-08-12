@@ -1,7 +1,7 @@
-function HandelChange(e, setEmployee, employee) {
+function HandelChange(e, setEmployeeFromData, employeeFromData) {
   const { value, name } = e.currentTarget
-  setEmployee({
-    ...employee,
+  setEmployeeFromData({
+    ...employeeFromData,
     [name]: value,
   })
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { states, departments } from '../datas/DatasForm'
+//import { useGlobalState } from '../../state/State'
 import SelectOptions from '../components/SelectOptions'
 import SaveEmployee from '../components/SaveEmployee'
 import HandelChange from '../components/HandelChange'
@@ -8,10 +9,10 @@ import HandelChangeOption from '../components/HandelChangeOption'
 import useModal from '../components/useModal'
 import Modal from '../components/Modal'
 
-function Home() {
+function Hom() {
   const { isShowing, toggle } = useModal()
-
-  const [employee, setEmployee] = useState({
+  /// const [employees, setEmployees] = useGlobalState('employee')
+  const [employeeFromData, setEmployeeFromData] = useState({
     firstName: '',
     lastName: '',
     dateOfBirth: '',
@@ -22,16 +23,22 @@ function Home() {
     state: '',
     zipCode: '',
   })
-  console.log(employee)
+  //console.log({ employees })
+
   return (
     <main className="container">
       <Link to="/CurrentEmmpoyees">
         <p className="text-center"> View Current Employees</p>
       </Link>
-
+      <Link to="/CurrentEmmpoyeesEreka">
+        <p className="text-center"> View Current Employees with Ereka</p>
+      </Link>
       <h2>Create Employee</h2>
 
-      <form id="create-employee" onSubmit={(e) => SaveEmployee(e, employee)}>
+      <form
+        id="create-employee"
+        onSubmit={(e) => SaveEmployee(e, employeeFromData)}
+      >
         <div className="form-group mb-2">
           <label htmlFor="first-name" className="col-sm-2 col-form-label">
             First Name
@@ -42,7 +49,9 @@ function Home() {
             id="first-name"
             placeholder="Dupont"
             name="firstName"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
         </div>
 
@@ -56,7 +65,9 @@ function Home() {
             id="last-name"
             placeholder="Damien"
             name="lastName"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
         </div>
 
@@ -70,7 +81,9 @@ function Home() {
             id="date-of-birth"
             placeholder="jj/mm/aaaa"
             name="dateOfBirth"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
         </div>
 
@@ -84,7 +97,9 @@ function Home() {
             id="start-date"
             placeholder="jj/mm/aaaa"
             name="startDate"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
         </div>
 
@@ -99,7 +114,9 @@ function Home() {
             id="street"
             placeholder="Street"
             name="street"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
           <label htmlFor="city" className="col-sm-2 col-form-label">
             City
@@ -110,7 +127,9 @@ function Home() {
             id="city"
             placeholder="City"
             name="city"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
           <label htmlFor="state" className="col-sm-2 col-form-label">
             State
@@ -120,7 +139,7 @@ function Home() {
             defaultValue={'N/A'}
             id="state"
             onChange={(event) =>
-              HandelChangeOption(event, setEmployee, employee)
+              HandelChangeOption(event, setEmployeeFromData, employeeFromData)
             }
           >
             <SelectOptions options={states} title="state" />
@@ -135,7 +154,9 @@ function Home() {
             id="zip"
             placeholder="Zip"
             name="zipCode"
-            onChange={(event) => HandelChange(event, setEmployee, employee)}
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
           />
         </div>
         <div className="form-group mb-2">
@@ -147,7 +168,7 @@ function Home() {
             defaultValue={'N/A'}
             id="department"
             onChange={(event) =>
-              HandelChangeOption(event, setEmployee, employee)
+              HandelChangeOption(event, setEmployeeFromData, employeeFromData)
             }
           >
             <SelectOptions options={departments} title="departments" />
@@ -166,4 +187,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Hom

@@ -1,4 +1,4 @@
-function HandelChangeOption(e, setEmployee, employee) {
+function HandelChangeOption(e, setEmployeeFromData, employeeFromData) {
   const idChoice = e.currentTarget.selectedIndex
 
   const idText = {
@@ -7,8 +7,8 @@ function HandelChangeOption(e, setEmployee, employee) {
   }
   const { value, name } = idText
 
-  setEmployee({
-    ...employee,
+  setEmployeeFromData({
+    ...employeeFromData,
     [name]: value,
   })
 }

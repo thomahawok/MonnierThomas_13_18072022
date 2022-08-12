@@ -8,8 +8,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import sortByAsending from '../utils/sortByAsending'
 import sortByDescending from '../utils/sortByDescending'
-import Pagination from '../components/pagination'
-//import EmployeesListe from '../components/EmployeesList'
 
 function CurrentEmmpoyees() {
   let n = 1
@@ -77,10 +75,6 @@ function CurrentEmmpoyees() {
   }
 
   console.log({ filtredEmployee })
-  //useEffect(() => {
-  //  setfiltredEmployee(employeeSort)
-  //}),
-  //  [employeeSort]
 
   return (
     <main className="container table-responsive">
