@@ -1,9 +1,10 @@
 import EukaDataTable from 'euka-datatables'
 import { Link } from 'react-router-dom'
-//import { useGlobalState } from '../../state/State'
+import { useGlobalState } from '../state/State'
 
 export default function DataTable() {
-  const employees = JSON.parse(localStorage.getItem('employees'))
+  const [employees] = useGlobalState('employee')
+
   let columns = [
     {
       name: 'firstName',
@@ -51,7 +52,7 @@ export default function DataTable() {
   return (
     <>
       <section className="dataTable">
-        <h1 className="employeeTitle">Current Employees</h1>
+        <h1 className="dataTable__employeeTitle">Current Employees</h1>
         <EukaDataTable
           key={'table-1'}
           columns={columns}
@@ -59,9 +60,6 @@ export default function DataTable() {
           options={options}
         />
       </section>
-      <Link className="homeBtn" to="/">
-        Home
-      </Link>
     </>
   )
 }

@@ -8,10 +8,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import sortByAsending from '../utils/sortByAsending'
 import sortByDescending from '../utils/sortByDescending'
+import ShowEntries from '../components/ShowEntries'
+import Search from '../components/Search'
 
 function CurrentEmmpoyees() {
   let n = 1
   const employeesListe = JSON.parse(localStorage.getItem('employees'))
+
   const [filtredEmployee, setFiltredEmployee] = useState(employeesListe)
 
   const [employeeSort, setEmployeeSort] = useState(filtredEmployee)
@@ -19,12 +22,10 @@ function CurrentEmmpoyees() {
     setEmployeeSort(filtredEmployee)
   }, [filtredEmployee])
 
-  console.log({ employeeSort })
   const [numberEntriesToDisplay, setNumberEntriesToDisplay] = useState(
     Number(5)
   )
   const [CurrentPage, setCurrentPage] = useState(1)
-
   const totalNumberOfEntries = employeeSort.length
   const numberPages = Math.ceil(totalNumberOfEntries / numberEntriesToDisplay)
 
@@ -55,71 +56,17 @@ function CurrentEmmpoyees() {
     }
   }
 
-  function filter(employeesListe) {
-    const input = document.getElementById('form1').value
-    console.log({ input })
-    setFiltredEmployee(
-      employeesListe.filter(
-        (employee) =>
-          employee.firstName.toLowerCase().includes(input.toLowerCase()) ||
-          employee.lastName.toLowerCase().includes(input.toLowerCase()) ||
-          employee.dateOfBirth.toLowerCase().includes(input.toLowerCase()) ||
-          employee.startDate.toLowerCase().includes(input.toLowerCase()) ||
-          employee.department.toLowerCase().includes(input.toLowerCase()) ||
-          employee.street.toLowerCase().includes(input.toLowerCase()) ||
-          employee.city.toLowerCase().includes(input.toLowerCase()) ||
-          employee.state.toLowerCase().includes(input.toLowerCase()) ||
-          employee.zipCode.toLowerCase().includes(input.toLowerCase())
-      )
-    )
-  }
-
   console.log({ filtredEmployee })
 
   return (
     <main className="container table-responsive">
+      <h1 className="employeeTitle">Current Employees</h1>
       <div className="row justify-content-between align-middle">
-        <div className="col showEntries">
-          <div
-            className="row justify-content-start align-middle "
-            style={{ width: '40%' }}
-          >
-            <h6 className="col my-auto">Show </h6>
-
-            <select
-              className=" col form-select"
-              aria-label="Default select "
-              style={{ width: 'auto' }}
-              onChange={(e) =>
-                setNumberEntriesToDisplay(Number(e.currentTarget.value))
-              }
-            >
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
-            <h6 className="col my-auto">Entries</h6>
-          </div>
-        </div>
-        <div className=" col input-group justify-content-end mb-1">
-          <div className="form-outline">
-            <input
-              type="search"
-              id="form1"
-              className="form-control"
-              placeholder="Search"
-            />
-          </div>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClickCapture={(e) => filter(employeesListe)}
-          >
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </div>
+        <ShowEntries setNumberEntriesToDisplay={setNumberEntriesToDisplay} />
+        <Search
+          employeesListe={employeesListe}
+          setFiltredEmployee={setFiltredEmployee}
+        />
       </div>
       <table className="table table-sm align-middle">
         <caption>Products</caption>
