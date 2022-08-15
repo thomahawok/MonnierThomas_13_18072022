@@ -1,5 +1,4 @@
 import EukaDataTable from 'euka-datatables'
-import { Link } from 'react-router-dom'
 import { useGlobalState } from '../state/State'
 
 export default function DataTable() {
