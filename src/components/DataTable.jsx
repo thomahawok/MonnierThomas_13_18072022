@@ -1,6 +1,11 @@
 import EukaDataTable from 'euka-datatables'
 import { useGlobalState } from '../state/State'
 
+/**
+ * DataTable component
+ * @returns {React.ReactElement} JSX.Element - the list of employees
+ */
+
 export default function DataTable() {
   const [employees] = useGlobalState('employee')
 

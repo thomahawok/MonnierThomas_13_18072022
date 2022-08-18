@@ -1,6 +1,11 @@
 import DataTable from '../components/DataTable'
 import { Link } from 'react-router-dom'
 
+/**
+ * CurrentEmmpoyeesEreka page
+ * @returns {React.ReactElement} JSX.Element - the CurrentEmmpoyeesEreka page
+ */
+
 export default function CurrentEmmpoyeesEreka() {
   return (
     <main className="col-lg-10 col-md-9 mx-auto">

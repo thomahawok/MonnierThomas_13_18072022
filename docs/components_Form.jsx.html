@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/Form.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">RHnet Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#Form">Form</a></li><li><a href="global.html#HandelChange">HandelChange</a></li><li><a href="global.html#HandelChangeOption">HandelChangeOption</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Hom">Hom</a></li><li><a href="global.html#SaveEmployee">SaveEmployee</a></li><li><a href="global.html#SelectOptions">SelectOptions</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/Form.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react'
+import { useGlobalState } from '../state/State'
+import { states, departments } from '../datas/DatasForm'
+import SelectOptions from '../utils/selectOptions'
+import SaveEmployee from '../utils/saveEmployee'
+import HandelChange from '../utils/handelChange'
+import HandelChangeOption from '../utils/handelChangeOption'
+
+/**
+ * Componet - Form - Create Employee
+ * @param {*} toggle - function to toggle the modal (returns true or false)
+ * @returns  {React.ReactElement} JSX.Element - Form
+ */
+
+function Form({ toggle }) {
+  const [employees, setEmployees] = useGlobalState('employee')
+  const [employeeFromData, setEmployeeFromData] = useState({
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    startDate: '',
+    department: '',
+    street: '',
+    city: '',
+    state: '',
+    zipCode: '',
+  })
+
+  return (
+    &lt;form
+      id="create-employee"
+      className="col-lg-5 col-md-9 mx-auto"
+      onSubmit={(e) =>
+        SaveEmployee(e, employeeFromData, employees, setEmployees)
+      }
+    >
+      &lt;div className="form-group form-floating mb-3">
+        &lt;input
+          type="text"
+          className="form-control"
+          id="first-name"
+          placeholder="Dupont"
+          name="firstName"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+          onChange={(event) =>
+            HandelChange(event, setEmployeeFromData, employeeFromData)
+          }
+        />
+        &lt;label htmlFor="first-name" className="col-sm-3 col-form-label">
+          First Name
+        &lt;/label>
+      &lt;/div>
+
+      &lt;div className="form-group form-floating mb-3">
+        &lt;input
+          type="text"
+          className="form-control"
+          id="last-name"
+          placeholder="Damien"
+          name="lastName"
+          onChange={(event) =>
+            HandelChange(event, setEmployeeFromData, employeeFromData)
+          }
+        />
+        &lt;label htmlFor="last-name" className="col-sm-3 col-form-label">
+          Last Name
+        &lt;/label>
+      &lt;/div>
+
+      &lt;div className="form-group form-floating mb-3">
+        &lt;input
+          type="date"
+          className="form-control date"
+          id="date-of-birth"
+          placeholder="jj/mm/aaaa"
+          name="dateOfBirth"
+          onChange={(event) =>
+            HandelChange(event, setEmployeeFromData, employeeFromData)
+          }
+        />
+        &lt;label htmlFor="date-of-birth" className="col-sm-3 col-form-label">
+          Date of Birth
+        &lt;/label>
+      &lt;/div>
+
+      &lt;div className="form-group form-floating mb-3">
+        &lt;input
+          type="date"
+          className="form-control"
+          id="start-date"
+          placeholder="jj/mm/aaaa"
+          name="startDate"
+          onChange={(event) =>
+            HandelChange(event, setEmployeeFromData, employeeFromData)
+          }
+        />
+        &lt;label htmlFor="start-date" className="col-sm-3 col-form-label">
+          Start Date
+        &lt;/label>
+      &lt;/div>
+
+      &lt;div className="container mb-2 py-2 border rounded">
+        &lt;h3>Address&lt;/h3>
+        &lt;div className="form-group form-floating mb-3">
+          &lt;input
+            type="text"
+            className="form-control"
+            id="street"
+            placeholder="Street"
+            name="street"
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
+          />
+          &lt;label htmlFor="street" className="col-sm-3 col-form-label">
+            Street
+          &lt;/label>
+        &lt;/div>
+        &lt;div className="form-group form-floating mb-3">
+          &lt;input
+            type="text"
+            className="form-control"
+            id="city"
+            placeholder="City"
+            name="city"
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
+          />
+          &lt;label htmlFor="city" className="col-sm-3 col-form-label">
+            City
+          &lt;/label>
+        &lt;/div>
+
+        &lt;div className="form-group form-floating mb-3">
+          &lt;select
+            className="form-select"
+            defaultValue={'N/A'}
+            id="state"
+            onChange={(event) =>
+              HandelChangeOption(event, setEmployeeFromData, employeeFromData)
+            }
+          >
+            &lt;SelectOptions options={states} title="state" />
+          &lt;/select>
+          &lt;label htmlFor="state" className="col-sm-3 col-form-label">
+            State
+          &lt;/label>
+        &lt;/div>
+        &lt;div className="form-group form-floating mb-3">
+          &lt;input
+            type="text"
+            className="form-control"
+            id="zip"
+            placeholder="Zip"
+            name="zipCode"
+            onChange={(event) =>
+              HandelChange(event, setEmployeeFromData, employeeFromData)
+            }
+          />
+          &lt;label htmlFor="zip" className="col-sm-3 col-form-label">
+            Zip
+          &lt;/label>
+        &lt;/div>
+      &lt;/div>
+      &lt;div className="form-group form-floating mb-3">
+        &lt;select
+          className="form-select"
+          defaultValue={'N/A'}
+          id="department"
+          onChange={(event) =>
+            HandelChangeOption(event, setEmployeeFromData, employeeFromData)
+          }
+        >
+          &lt;SelectOptions options={departments} title="departments" />
+        &lt;/select>
+        &lt;label htmlFor="departemnt" className="col-sm-3 col-form-label">
+          Department
+        &lt;/label>
+      &lt;/div>
+
+      &lt;div className="text-center">
+        &lt;button
+          type="submit"
+          className="btn btn-primary mt-2 col-3"
+          onClick={toggle}
+        >
+          Save
+        &lt;/button>
+      &lt;/div>
+    &lt;/form>
+  )
+}
+
+export default Form
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
