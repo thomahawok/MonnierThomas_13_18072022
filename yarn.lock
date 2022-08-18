@@ -6773,10 +6773,10 @@
   dependencies:
     "path-key" "^3.0.0"
 
-"npmreactmodal@^0.2.3":
-  "integrity" "sha512-3NEh9M7eoX/q2g8uJBnXcCp1pP0ZW+lKaPkaSPTAgrvkzr7+9xqmoaxHVlpcCdlxpACeo9oALXK+Pso+AvpjIQ=="
-  "resolved" "https://registry.npmjs.org/npmreactmodal/-/npmreactmodal-0.2.3.tgz"
-  "version" "0.2.3"
+"npmreactmodal@^0.2.4":
+  "integrity" "sha512-R4Yiejoy3Ec2A8esZyapq4pkz2W4HkuyazyjMv1WDozEGoSKKfH1EcqEaaftaUofdFIiXfjDiLi6bW9RQMhM/g=="
+  "resolved" "https://registry.npmjs.org/npmreactmodal/-/npmreactmodal-0.2.4.tgz"
+  "version" "0.2.4"
   dependencies:
     "@babel/polyfill" "^7.12.1"
     "@testing-library/jest-dom" "^5.16.5"
