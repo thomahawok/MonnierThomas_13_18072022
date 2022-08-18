@@ -3531,6 +3531,11 @@
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.23.5.tgz"
   "version" "3.23.5"
 
+"core-js@^3.24.1":
+  "integrity" "sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.24.1.tgz"
+  "version" "3.24.1"
+
 "core-util-is@~1.0.0":
   "integrity" "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
@@ -6773,15 +6778,16 @@
   dependencies:
     "path-key" "^3.0.0"
 
-"npmreactmodal@^0.2.4":
-  "integrity" "sha512-R4Yiejoy3Ec2A8esZyapq4pkz2W4HkuyazyjMv1WDozEGoSKKfH1EcqEaaftaUofdFIiXfjDiLi6bW9RQMhM/g=="
-  "resolved" "https://registry.npmjs.org/npmreactmodal/-/npmreactmodal-0.2.4.tgz"
-  "version" "0.2.4"
+"npmreactmodal@^0.2.5":
+  "integrity" "sha512-1jhgK+r7fIgdipnYR0Y9YDmOjKQtr0oOJOfNAassvgK476Xkdn623xU8KzMdGdzU0PqCb56dgAtphsKCLNOFtQ=="
+  "resolved" "https://registry.npmjs.org/npmreactmodal/-/npmreactmodal-0.2.5.tgz"
+  "version" "0.2.5"
   dependencies:
     "@babel/polyfill" "^7.12.1"
     "@testing-library/jest-dom" "^5.16.5"
     "@testing-library/react" "^13.3.0"
     "@testing-library/user-event" "^13.5.0"
+    "core-js" "^3.24.1"
     "react" "^18.2.0"
     "react-dom" "^18.2.0"
     "react-scripts" "5.0.1"
