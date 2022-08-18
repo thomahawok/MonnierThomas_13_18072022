@@ -3,12 +3,11 @@ import { Modal, useModal } from 'npmreactmodal'
 import Form from '../components/Form'
 
 /**
- *
- * @returns
+ * Function that returns the Hom page
+ * @returns {React.ReactElement} JSX.Element - the main page with API data
  */
 
 function Hom() {
-  //window.React = React
   const { isShowing, toggle } = useModal()
 
   return (
@@ -27,7 +26,6 @@ function Hom() {
       <h2 className="col-lg-5  col-md-9 mx-auto pt-3">Create Employee</h2>
 
       <Form toggle={toggle} />
-
       <Modal isShowing={isShowing} hide={toggle} text="Employee Created !" />
     </main>
   )
