@@ -1,4 +1,4 @@
-# HRNet
+# Projet 14 - ArgentBankHRNet
 
 <!-- ABOUT THE PROJECT -->
 
