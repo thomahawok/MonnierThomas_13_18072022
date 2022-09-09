@@ -56,7 +56,7 @@ export default function DataTable() {
   return (
     <>
       <section className="dataTable">
-        <h1 className="dataTable__employeeTitle">Current Employees</h1>
+        <h2 className="dataTable__employeeTitle">Current Employees</h2>
         <EukaDataTable
           key={'table-1'}
           columns={columns}
