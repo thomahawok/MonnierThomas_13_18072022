@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { useGlobalState } from '../state/State'
 import { states, departments } from '../datas/DatasForm'
 import SelectOptions from '../utils/selectOptions'
-import SaveEmployee from '../utils/saveEmployee'
 import HandelChange from '../utils/handelChange'
 import HandelChangeOption from '../utils/handelChangeOption'
 import { postUser } from '../services/postUser'
@@ -14,7 +12,6 @@ import { postUser } from '../services/postUser'
  */
 
 function Form({ toggle }) {
-  const [employees, setEmployees] = useGlobalState('employee')
   const [employeeFromData, setEmployeeFromData] = useState({
     firstName: '',
     lastName: '',
@@ -33,7 +30,7 @@ function Form({ toggle }) {
       id="create-employee"
       className="col-lg-5 col-md-9 mx-auto"
       onSubmit={
-        (e) => postUser(employeeFromData)
+        (e) => postUser(e, employeeFromData)
 
         // SaveEmployee(e, employeeFromData, employees, setEmployees)
       }

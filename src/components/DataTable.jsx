@@ -1,8 +1,8 @@
 import EukaDataTable from 'euka-datatables'
-import { useGlobalState } from '../state/State'
 import { getUsers } from '../services/getUsers'
 import { useEffect, useState } from 'react'
 import { deleteUser } from '../services/deleteUser'
+import changeDate from '../utils/changeDate'
 
 /**
  * DataTable component
@@ -13,14 +13,13 @@ export default function DataTable() {
   const selected = document.querySelector('.selected-info')
   const [employeesList, setEmployeesList] = useState()
   const [employeesListToDelete, setEmployeesListToDelete] = useState()
-
+  console.log(employeesList)
   if (
     employeesListToDelete !== null &&
     employeesListToDelete !== undefined &&
     selected !== null
   ) {
     selected.addEventListener('click', (e) => {
-      console.log(employeesListToDelete)
       employeesListToDelete.map((data) => deleteUser(data.id))
     })
   }
@@ -28,7 +27,11 @@ export default function DataTable() {
   useEffect(() => {
     getUsers()
       .then((data) => {
+        // modify date format
+        data.map((data) => changeDate(data))
+
         setEmployeesList(data)
+        console.log(data)
       })
       .catch((error) => console.log(error))
   }, [])
@@ -76,7 +79,7 @@ export default function DataTable() {
     responsive: 'collapse',
     recordsPerPageOptions: { 10: 10, 25: 25, 50: 50, 100: 100 },
     selectRows: true,
-    onRowsSelect: (selectedData) => {
+    onRowsSelect: (selectedDataInices, selectedData, parentRecord) => {
       'selectedData'
 
       setEmployeesListToDelete(selectedData)
