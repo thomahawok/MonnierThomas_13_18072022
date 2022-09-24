@@ -13,7 +13,6 @@ function App() {
       <section className="elementsToDisplay">
         <Routes>
           <Route path="/" element={<Home />} />
-
           <Route
             path="/CurrentEmmpoyeesEreka"
             element={<CurrentEmmpoyeesEreka />}

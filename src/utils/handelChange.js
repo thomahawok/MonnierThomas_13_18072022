@@ -14,7 +14,17 @@
  */
 
 function HandelChange(e, setEmployeeFromData, employeeFromData) {
-  const { value, name } = e.currentTarget
+  let { value, name } = e.currentTarget
+
+  if (name === 'dateOfBirth' || name === 'startDate') {
+    const date = new Date(value)
+    const day = date.getDate()
+    const month = date.getMonth() + 1
+    const year = date.getFullYear()
+    const newDate = `${day}/${month}/${year}`
+    value = newDate
+  }
+
   setEmployeeFromData({
     ...employeeFromData,
     [name]: value,
