@@ -1,3 +1,4 @@
+import { postUser } from '../services/postUser'
 /**
  * Function to save employee data to the database
  * @param {*} e - the event
@@ -16,8 +17,12 @@
  */
 function SaveEmployee(e, employeeFromData, employees, setEmployees) {
   e.preventDefault()
+  /*
+  postUser(employeeFromData)
+  */
   const newEmployees = [...employees, employeeFromData]
   setEmployees(newEmployees)
+
   document.getElementById('create-employee').reset()
 }
 

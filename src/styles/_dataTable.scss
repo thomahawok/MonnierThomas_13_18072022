@@ -30,6 +30,11 @@
   font-size: 0.75rem !important;;
 }
 
+.selected-info::after {
+  content: "\01F5D1";
+  font-size: 1rem;
+}
+
 @media (max-width: 340px) {
   .table-search-input {
     max-width: 130px;

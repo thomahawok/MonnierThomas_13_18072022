@@ -5,6 +5,7 @@ import SelectOptions from '../utils/selectOptions'
 import SaveEmployee from '../utils/saveEmployee'
 import HandelChange from '../utils/handelChange'
 import HandelChangeOption from '../utils/handelChangeOption'
+import { postUser } from '../services/postUser'
 
 /**
  * Componet - Form - Create Employee
@@ -24,14 +25,17 @@ function Form({ toggle }) {
     city: '',
     state: '',
     zipCode: '',
+    id: '',
   })
 
   return (
     <form
       id="create-employee"
       className="col-lg-5 col-md-9 mx-auto"
-      onSubmit={(e) =>
-        SaveEmployee(e, employeeFromData, employees, setEmployees)
+      onSubmit={
+        (e) => postUser(employeeFromData)
+
+        // SaveEmployee(e, employeeFromData, employees, setEmployees)
       }
     >
       <div className="form-group form-floating mb-3">
