@@ -1,5 +1,7 @@
 import EukaDataTable from 'euka-datatables'
 import { useGlobalState } from '../state/State'
+import { useState } from 'react'
+import deleteUser from '../utils/deleteUser'
 
 /**
  * DataTable component
@@ -7,7 +9,11 @@ import { useGlobalState } from '../state/State'
  */
 
 export default function DataTable() {
-  const [employees] = useGlobalState('employee')
+  const selected = document.querySelector('.selected-info')
+  const [employees, setEmployees] = useGlobalState('employee')
+  const [employeesListToDelete, setEmployeesListToDelete] = useState()
+
+  deleteUser(selected, employeesListToDelete, employees, setEmployees)
 
   let columns = [
     {
@@ -51,6 +57,12 @@ export default function DataTable() {
   let options = {
     responsive: 'collapse',
     recordsPerPageOptions: { 10: 10, 25: 25, 50: 50, 100: 100 },
+    selectRows: true,
+    onRowsSelect: (selectedDataInices, selectedData, parentRecord) => {
+      'selectedData'
+
+      setEmployeesListToDelete(selectedData)
+    },
   }
 
   return (

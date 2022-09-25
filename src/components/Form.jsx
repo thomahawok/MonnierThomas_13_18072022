@@ -187,11 +187,7 @@ function Form({ toggle }) {
       </div>
 
       <div className="text-center">
-        <button
-          type="submit"
-          className="btn btn-primary mt-2 col-3"
-          //onClick={toggle}
-        >
+        <button type="submit" className="btn btn-primary mt-2 col-3">
           Save
         </button>
       </div>

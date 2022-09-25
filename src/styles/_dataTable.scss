@@ -25,6 +25,11 @@
   align-items: baseline;
 }
 
+.selected-info::after {
+  content: "\01F5D1";
+  font-size: 1rem;
+}
+
 .table-footer span {
   padding: 5px !important;
   font-size: 0.75rem !important;;
