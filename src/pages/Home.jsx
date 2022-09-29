@@ -22,9 +22,7 @@ function Hom() {
           View Current Employees with EukaDataTable
         </Link>
       </div>
-
       <h2 className="col-lg-5  col-md-9 mx-auto pt-3">Create Employee</h2>
-
       <Form toggle={toggle} />
       <Modal isShowing={isShowing} hide={toggle} text="Employee Created !" />
     </main>

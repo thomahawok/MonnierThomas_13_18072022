@@ -10,6 +10,12 @@ import deleteUser from '../utils/deleteUser'
 
 export default function DataTable() {
   const selected = document.querySelector('.selected-info')
+  const checkbox = document.getElementsByTagName('input')
+
+  for (let i = 0; i < checkbox.length; i++) {
+    checkbox[i].setAttribute('aria-label', 'select employee')
+  }
+
   const [employees, setEmployees] = useGlobalState('employee')
   const [employeesListToDelete, setEmployeesListToDelete] = useState()
 
