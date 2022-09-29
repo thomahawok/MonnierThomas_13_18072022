@@ -1,6 +1,8 @@
+//import React, { Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { Modal, useModal } from 'npmreactmodal'
 import Form from '../components/Form'
+//const Form = React.lazy(() => import('../components/Form'))
 
 /**
  * Function that returns the Hom page
@@ -19,12 +21,10 @@ function Hom() {
           to="/CurrentEmmpoyeesEreka"
         >
           {' '}
-          View Current Employees with EukaDataTable
+          View Current Employees
         </Link>
       </div>
-
       <h2 className="col-lg-5  col-md-9 mx-auto pt-3">Create Employee</h2>
-
       <Form toggle={toggle} />
       <Modal isShowing={isShowing} hide={toggle} text="Employee Created !" />
     </main>

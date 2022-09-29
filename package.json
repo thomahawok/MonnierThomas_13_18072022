@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "reactS-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docs": "jsdoc -c jsdoc.json"
@@ -52,6 +52,6 @@
     "better-docs": "^2.7.2",
     "jsdoc": "^3.6.11",
     "prettier": "^2.7.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1"
   }
 }
