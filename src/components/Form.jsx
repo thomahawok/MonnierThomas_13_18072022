@@ -29,11 +29,10 @@ function Form({ toggle }) {
     <form
       id="create-employee"
       className="col-lg-5 col-md-9 mx-auto"
-      onSubmit={
-        (e) => postUser(e, employeeFromData)
-
-        // SaveEmployee(e, employeeFromData, employees, setEmployees)
-      }
+      onSubmit={(e) => {
+        postUser(e, employeeFromData)
+        toggle()
+      }}
     >
       <div className="form-group form-floating mb-3">
         <input
@@ -44,6 +43,7 @@ function Form({ toggle }) {
           name="firstName"
           aria-label="Username"
           aria-describedby="basic-addon1"
+          required
           onChange={(event) =>
             HandelChange(event, setEmployeeFromData, employeeFromData)
           }
@@ -60,6 +60,7 @@ function Form({ toggle }) {
           id="last-name"
           placeholder="Damien"
           name="lastName"
+          required
           onChange={(event) =>
             HandelChange(event, setEmployeeFromData, employeeFromData)
           }
@@ -76,6 +77,7 @@ function Form({ toggle }) {
           id="date-of-birth"
           placeholder="jj/mm/aaaa"
           name="dateOfBirth"
+          required
           onChange={(event) =>
             HandelChange(event, setEmployeeFromData, employeeFromData)
           }
@@ -92,6 +94,7 @@ function Form({ toggle }) {
           id="start-date"
           placeholder="jj/mm/aaaa"
           name="startDate"
+          required
           onChange={(event) =>
             HandelChange(event, setEmployeeFromData, employeeFromData)
           }
@@ -110,6 +113,7 @@ function Form({ toggle }) {
             id="street"
             placeholder="Street"
             name="street"
+            required
             onChange={(event) =>
               HandelChange(event, setEmployeeFromData, employeeFromData)
             }
@@ -125,6 +129,7 @@ function Form({ toggle }) {
             id="city"
             placeholder="City"
             name="city"
+            required
             onChange={(event) =>
               HandelChange(event, setEmployeeFromData, employeeFromData)
             }
@@ -139,6 +144,7 @@ function Form({ toggle }) {
             className="form-select"
             defaultValue={'N/A'}
             id="state"
+            required
             onChange={(event) =>
               HandelChangeOption(event, setEmployeeFromData, employeeFromData)
             }
@@ -156,6 +162,7 @@ function Form({ toggle }) {
             id="zip"
             placeholder="Zip"
             name="zipCode"
+            required
             onChange={(event) =>
               HandelChange(event, setEmployeeFromData, employeeFromData)
             }
@@ -170,6 +177,7 @@ function Form({ toggle }) {
           className="form-select"
           defaultValue={'N/A'}
           id="department"
+          required
           onChange={(event) =>
             HandelChangeOption(event, setEmployeeFromData, employeeFromData)
           }
@@ -182,11 +190,7 @@ function Form({ toggle }) {
       </div>
 
       <div className="text-center">
-        <button
-          type="submit"
-          className="btn btn-primary mt-2 col-3"
-          onClick={toggle}
-        >
+        <button type="submit" className="btn btn-primary mt-2 col-3">
           Save
         </button>
       </div>
