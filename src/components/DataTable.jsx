@@ -13,7 +13,12 @@ export default function DataTable() {
   const selected = document.querySelector('.selected-info')
   const [employeesList, setEmployeesList] = useState()
   const [employeesListToDelete, setEmployeesListToDelete] = useState()
-  console.log(employeesList)
+  const checkbox = document.getElementsByTagName('input')
+
+  for (let i = 0; i < checkbox.length; i++) {
+    checkbox[i].setAttribute('aria-label', 'select employee')
+  }
+
   if (
     employeesListToDelete !== null &&
     employeesListToDelete !== undefined &&
@@ -27,11 +32,8 @@ export default function DataTable() {
   useEffect(() => {
     getUsers()
       .then((data) => {
-        // modify date format
         data.map((data) => changeDate(data))
-
         setEmployeesList(data)
-        console.log(data)
       })
       .catch((error) => console.log(error))
   }, [])
@@ -81,7 +83,6 @@ export default function DataTable() {
     selectRows: true,
     onRowsSelect: (selectedDataInices, selectedData, parentRecord) => {
       'selectedData'
-
       setEmployeesListToDelete(selectedData)
     },
   }
