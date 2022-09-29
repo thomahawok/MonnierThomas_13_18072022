@@ -16,7 +16,9 @@
  */
 function SaveEmployee(e, employeeFromData, employees, setEmployees) {
   e.preventDefault()
-  const newEmployees = [...employees, employeeFromData]
+  const newEmployees = [...employees]
+  newEmployees.push(employeeFromData)
+  console.log(newEmployees)
   setEmployees(newEmployees)
   document.getElementById('create-employee').reset()
 }
