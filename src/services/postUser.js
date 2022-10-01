@@ -1,7 +1,13 @@
 import axios from 'axios'
 
+/**
+ *
+ * @param {*} e - the event
+ * @param {*} employeeFromData  - object with the input fields values
+ * @returns  {Promise<any>} Promise with the user datas
+ */
+
 export async function postUser(e, employeeFromData) {
-  console.log(employeeFromData)
   e.preventDefault()
   try {
     const res = await axios.post(
